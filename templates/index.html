@@ -3,73 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium QR Code Generator</title>
+    <title>Premium QR Code Generator | QRPulse</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom infinite marquee animation for logo slider */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen flex items-center justify-center p-4">
+<body class="bg-slate-950 text-slate-100 overflow-x-hidden selection:bg-purple-500/30 selection:text-purple-200">
 
-    <div class="max-w-md w-full bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl shadow-2xl p-6 md:p-8 space-y-6">
+    <!-- Background Glow Effects -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-900/20 via-fuchsia-900/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- Navigation Header -->
+    <header class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center border-b border-slate-900">
+        <div class="flex items-center gap-2.5">
+            <div class="p-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl shadow-lg shadow-purple-500/20">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5c-.621 0-1.125-.504-1.125-1.125v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5c-.621 0-1.125-.504-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5c-.621 0-1.125-.504-1.125-1.125v-4.5zM13.5 14.25a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75z" />
+                </svg>
+            </div>
+            <span class="text-lg font-bold tracking-tight text-white bg-clip-text">QR<span class="text-purple-400">Pulse</span></span>
+        </div>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+            <a href="#generator" class="hover:text-purple-400 transition-colors">Generator</a>
+            <a href="#about" class="hover:text-purple-400 transition-colors">About Us</a>
+            <a href="#testimonials" class="hover:text-purple-400 transition-colors">Testimonials</a>
+        </nav>
+        <a href="#generator" class="text-xs font-semibold uppercase tracking-wider text-purple-400 border border-purple-500/30 bg-purple-500/5 px-4 py-2 rounded-full hover:bg-purple-500/10 transition-all duration-200">
+            Try Now
+        </a>
+    </header>
+
+    <!-- SECTION 1: HERO & GENERATOR -->
+    <main id="generator" class="max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-12 gap-12 items-center">
         
-        <div class="text-center space-y-2">
-            <div class="inline-flex p-3 bg-indigo-500/10 rounded-2xl text-indigo-400 mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h4.5c-.621 0-1.125-.504-1.125-1.125v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h4.5c-.621 0-1.125-.504-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h4.5c-.621 0-1.125-.504-1.125-1.125v-4.5zM13.5 14.25a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm0 3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75 75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm3.75-3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm0 3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75z" />
-                </svg>
+        <!-- Left Side: Copywriting -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold tracking-wide uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span> Next-Gen Utilities
             </div>
-            <h1 class="text-2xl font-bold text-white tracking-tight">QR Code Generator</h1>
-            <p class="text-sm text-slate-400">Convert any URL into a clean, downloadable QR code instantly.</p>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+                Generate Stunning <br>
+                <span class="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">QR Codes</span> Instantly.
+            </h2>
+            <p class="text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                Empower your business brand with clean, high-resolution vector QR code designs. Completely free, customizable, and production-ready.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-4 justify-center lg:justify-start text-xs text-slate-400 font-medium">
+                <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Infinite Scans</div>
+                <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> High Quality PNG</div>
+                <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Zero Expiry</div>
+            </div>
         </div>
 
-        <form action="/" method="POST" class="space-y-4">
-            <div class="space-y-2">
-                <label for="url" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Paste Link Here</label>
-                <input 
-                    type="url" 
-                    name="url" 
-                    id="url" 
-                    placeholder="https://example.com" 
-                    required
-                    value="{{ url if url else '' }}"
-                    class="w-full px-4 py-3.5 bg-slate-800/50 border border-slate-700/60 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
-                >
-            </div>
-            <button 
-                type="submit" 
-                class="w-full bg-indigo-600 hover:bg-indigo-500 active:scale-[0.99] text-white font-medium py-3.5 px-4 rounded-xl shadow-lg shadow-indigo-600/20 transition-all duration-150 cursor-pointer text-center"
-            >
-                Generate QR Code
-            </button>
-        </form>
-
-        {% if qr_base64 %}
-        <div class="pt-4 border-t border-slate-800/80 flex flex-col items-center space-y-5 animate-fade-in">
+        <!-- Right Side: Interactive Generator Card -->
+        <div class="lg:col-span-5 w-full max-w-md mx-auto bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 rounded-3xl shadow-2xl p-6 md:p-8 space-y-6 relative transition-all duration-300 hover:border-purple-500/20">
             
-            <div class="bg-white p-4 rounded-2xl shadow-xl shadow-black/40 border border-slate-100">
-                <img src="data:image/png;base64,{{ qr_base64 }}" alt="Generated QR Code" class="w-48 h-48">
+            <form action="/" method="POST" class="space-y-4">
+                <div class="space-y-2">
+                    <label for="url" class="text-[11px] font-bold text-purple-400 uppercase tracking-widest block">Destination Endpoint</label>
+                    <input 
+                        type="url" 
+                        name="url" 
+                        id="url" 
+                        placeholder="https://yourbrand.com" 
+                        required
+                        value="{{ url if url else '' }}"
+                        class="w-full px-4 py-3.5 bg-slate-950/60 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-sm"
+                    >
+                </div>
+                <button 
+                    type="submit" 
+                    class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 active:scale-[0.98] text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg shadow-purple-900/30 transition-all duration-150 cursor-pointer text-center text-sm"
+                >
+                    Generate QR Code
+                </button>
+            </form>
+
+            {% if qr_base64 %}
+            <div class="pt-5 border-t border-slate-800/80 flex flex-col items-center space-y-5 transition-all duration-500 scale-100">
+                <div class="bg-white p-4 rounded-2xl shadow-2xl shadow-purple-950/40 border-2 border-purple-500/20 relative group">
+                    <img src="data:image/png;base64,{{ qr_base64 }}" alt="Generated QR Code" class="w-44 h-44 rounded-lg">
+                </div>
+
+                <a 
+                    href="data:image/png;base64,{{ qr_base64 }}" 
+                    download="qrcode.png" 
+                    class="inline-flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-750 active:scale-[0.98] text-slate-100 font-semibold py-3 px-6 rounded-xl border border-slate-700 transition-all duration-150 cursor-pointer text-sm shadow-md"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-purple-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    Download Asset
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+    <!-- SECTION 2: COMPANY LOGO SLIDER -->
+    <section class="border-y border-slate-900/60 bg-slate-950/40 py-10 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 mb-4">
+            <p class="text-center text-[11px] uppercase tracking-widest text-slate-500 font-bold">Trusted by marketing builders worldwide</p>
+        </div>
+        <div class="relative w-full flex overflow-x-hidden group">
+            <!-- Left & Right Gradient Overlays for smooth masking -->
+            <div class="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="animate-marquee flex items-center gap-16 text-slate-600 font-bold tracking-wider text-xl uppercase">
+                <span>⚡︎ CyberMedia</span>
+                <span>✦ ApexCorp</span>
+                <span>⬡ NexusLabs</span>
+                <span>⚡︎ Horizon_AI</span>
+                <span>✦ VeloDigital</span>
+                <span>⬡ SummitForte</span>
+                <!-- Duplicate array for infinite scroll wrapper symmetry -->
+                <span>⚡︎ CyberMedia</span>
+                <span>✦ ApexCorp</span>
+                <span>⬡ NexusLabs</span>
+                <span>⚡︎ Horizon_AI</span>
+                <span>✦ VeloDigital</span>
+                <span>⬡ SummitForte</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: ABOUT COMPANY -->
+    <section id="about" class="max-w-6xl mx-auto px-4 py-24 space-y-16">
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400">Engineered Precision</h2>
+            <p class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Why choose our dynamic framework?</p>
+            <p class="text-sm text-slate-400">We balance minimal computational aesthetics with robust microservices to provide dynamic routing pipelines.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="p-6 rounded-2xl bg-slate-900/20 border border-slate-900 hover:border-purple-500/20 transition-all duration-300 space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-base font-semibold text-white">Sub-Millisecond Rendering</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Our optimized underlying base architectures convert plain-text payloads into clean matrices instantaneously.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="p-6 rounded-2xl bg-slate-900/20 border border-slate-900 hover:border-purple-500/20 transition-all duration-300 space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="text-base font-semibold text-white">Production-Grade Security</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">We enforce strict scrubbing data protocols. Your URL configurations are handled exclusively on-the-fly without storage retention.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="p-6 rounded-2xl bg-slate-900/20 border border-slate-900 hover:border-purple-500/20 transition-all duration-300 space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.414a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 002-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-base font-semibold text-white">Crisp Rasterization</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Matrix module sizing scales accurately without bleeding edges, maximizing cross-platform mobile scanner reading precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: CLIENT TESTIMONIALS -->
+    <section id="testimonials" class="bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950 py-24 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 space-y-16">
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400">Reviews</h2>
+                <p class="text-3xl font-extrabold text-white tracking-tight">Validated by professionals</p>
             </div>
 
-            <a 
-                href="data:image/png;base64,{{ qr_base64 }}" 
-                download="qrcode.png" 
-                class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 active:scale-[0.99] text-white font-medium py-3 px-6 rounded-xl shadow-lg shadow-emerald-600/10 transition-all duration-150 cursor-pointer"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-                Download PNG
-            </a>
-        </div>
-        {% endif %}
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-8 rounded-2xl bg-slate-900/40 border border-slate-800/60 space-y-6 relative flex flex-col justify-between">
+                    <p class="text-sm text-slate-300 italic leading-relaxed">
+                        "The instant microservice wrapper allowed us to provision packaging physical assets with custom URL vectors without standard billing tiers. It works beautifully."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center font-bold text-xs text-white">
+                            AH
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Alyssa Hendricks</h4>
+                            <p class="text-[11px] text-slate-500">Growth Director, VeloDigital</p>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+                <!-- Testimonial 2 -->
+                <div class="p-8 rounded-2xl bg-slate-900/40 border border-slate-800/60 space-y-6 relative flex flex-col justify-between">
+                    <p class="text-sm text-slate-300 italic leading-relaxed">
+                        "Excellent matrix accuracy. We processed over two thousand download targets for our live experimental display panels without encountering scaling reading issues."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-xs text-white">
+                            MK
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Marcus Kane</h4>
+                            <p class="text-[11px] text-slate-500">Principal Systems Engineer, NexusLabs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FOOTER -->
+    <footer class="border-t border-slate-900 bg-slate-950">
+        <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+            <div class="flex items-center gap-2">
+                <span class="font-bold tracking-tight text-white">QR<span class="text-purple-400">Pulse</span></span>
+                <span>© 2026. All rights reserved.</span>
+            </div>
+            <div class="flex gap-6 font-medium">
+                <a href="#generator" class="hover:text-slate-300 transition-colors">Generate</a>
+                <a href="#about" class="hover:text-slate-300 transition-colors">About</a>
+                <a href="#testimonials" class="hover:text-slate-300 transition-colors">Testimonials</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
